@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MakaleYaziOrneklerim.Models.Besinler>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Yemek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Miktar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OlcuBirimi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kalori)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Protein)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Karbonhidrat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yağ)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categories)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yemek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Miktar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OlcuBirimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kalori)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Protein)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Karbonhidrat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yağ)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categories.CategoriesId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BesinId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BesinId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BesinId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
